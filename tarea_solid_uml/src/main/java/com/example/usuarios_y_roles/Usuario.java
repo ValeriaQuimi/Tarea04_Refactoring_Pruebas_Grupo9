@@ -1,15 +1,17 @@
 package com.example.usuarios_y_roles;
+
 public class Usuario {
     private int id;
     private String nombre;
-    private String correo;
+    private Email correo;
 
-    public Usuario(int id, String nombre, String correo) {
+    public Usuario(int id, String nombre, Email correo) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
     }
-    public String getCorreo() {
+
+    public Email getCorreo() {
         return correo;
     }
 
@@ -17,7 +19,7 @@ public class Usuario {
         return nombre;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 }

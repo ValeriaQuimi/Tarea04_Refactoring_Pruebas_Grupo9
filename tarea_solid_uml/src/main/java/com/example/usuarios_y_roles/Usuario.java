@@ -6,6 +6,9 @@ public class Usuario {
     private Email correo;
 
     public Usuario(int id, String nombre, Email correo) {
+        if (correo == null) {
+            throw new NullPointerException("El correo no puede ser null");
+        }
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;

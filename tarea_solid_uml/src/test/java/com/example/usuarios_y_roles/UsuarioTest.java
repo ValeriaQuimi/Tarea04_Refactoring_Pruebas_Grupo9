@@ -4,57 +4,45 @@
  */
 package com.example.usuarios_y_roles;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- *
- * @author SRoman
- */
+
 public class UsuarioTest {
     
-    public UsuarioTest() {
-    }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
-    }
-
-    /**
-     * Test of getCorreo method, of class Usuario.
-     */
-      @Test
+    @Test
     public void testGetId() {
-        Usuario usuario = new Usuario(1, "Axel", "axel@mail.com");
+        Email email = new Email("maria@mail.com");
+        Usuario usuario = new Usuario(1, "Maria", email);
         assertEquals(1, usuario.getId());
     }
 
     @Test
     public void testGetNombre() {
-        Usuario usuario = new Usuario(2, "Juan", "juan@mail.com");
+        Email email = new Email("juan@mail.com");
+        Usuario usuario = new Usuario(2, "Juan", email);
         assertEquals("Juan", usuario.getNombre());
     }
 
     @Test
     public void testGetCorreo() {
-        Usuario usuario = new Usuario(3, "Ana", "ana@mail.com");
-        assertEquals("ana@mail.com", usuario.getCorreo());
+        Email email = new Email("ana@mail.com");
+        Usuario usuario = new Usuario(3, "Ana", email);
+        assertEquals(email, usuario.getCorreo());
+    }
+
+    @Test
+    public void testUsuarioConEmailInvalido() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Usuario(4, "Bad", new Email("bademail"));
+        });
+    }
+
+    @Test
+    public void testUsuarioConEmailNulo() {
+        assertThrows(NullPointerException.class, () -> {
+            new Usuario(5, "Null", null);
+        });
     }
     
 }

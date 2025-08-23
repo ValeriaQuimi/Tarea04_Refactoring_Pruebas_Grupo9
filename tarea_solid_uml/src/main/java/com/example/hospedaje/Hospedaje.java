@@ -21,6 +21,13 @@ public class Hospedaje implements Reservable {
         return habitacion.estaDisponible();
     }
 
+    public void mostrarDetalles() {
+        System.out.println("Hospedaje:");
+        if (habitacion != null) {
+            habitacion.mostrarDetalles();
+        }
+    }
+
     public void bloquearTemporalmente() {
         if (habitacion.estaDisponible()) {
             habitacion.reservar();

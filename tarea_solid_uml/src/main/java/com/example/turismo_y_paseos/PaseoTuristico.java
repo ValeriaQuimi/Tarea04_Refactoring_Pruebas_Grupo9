@@ -22,4 +22,10 @@ public class PaseoTuristico implements Reservable {
         if(estado.equals(EstadoPaseo.DISPONIBLE) ) return true;
         else{return false;}    
     }
+
+    public void mostrarDetalles() {
+        System.out.println("Paseo turístico: " + nombre);
+        System.out.println("Precio: $" + precio);
+        System.out.println("Estado: " + estado);
+    }
 }

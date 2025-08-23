@@ -31,10 +31,12 @@ public class PaqueteTuristico implements IPaqueteTuristico {
     @Override
     public void mostrarDetalles() {
         System.out.println("Paquete turístico:");
-        if (hospedaje.getHabitacion() != null) {
-            hospedaje.getHabitacion().mostrarDetalles();
+        if (hospedaje != null) {
+            hospedaje.mostrarDetalles();
         }
-        System.out.println("Incluye paseo: " + paseo);
+        if (paseo != null) {
+            paseo.mostrarDetalles();
+        }
         System.out.println("Descuento aplicado: $" + descuento);
     }
 

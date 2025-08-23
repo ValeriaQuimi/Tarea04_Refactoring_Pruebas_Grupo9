@@ -98,7 +98,7 @@ public class ReservaSubjectTest {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             reservaSubject.notificarReservaCreada(null, null);
         });
-        assertEquals("Mensaje y Usuario no pueden ser null", ex.getMessage());
+        assertEquals("El usuario y su nombre no pueden ser nulos.", ex.getMessage());
     }
 
     // RS7
@@ -108,7 +108,7 @@ public class ReservaSubjectTest {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             reservaSubject.notificarReservaCreada("Reserva creada para el 10/05", null);
         });
-        assertEquals("Mensaje y Usuario no pueden ser null", ex.getMessage());
+        assertEquals("El usuario y su nombre no pueden ser nulos.", ex.getMessage());
     }
 
     // RS8
@@ -128,7 +128,7 @@ public class ReservaSubjectTest {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             reservaSubject.notificarReservaCancelada(null, null);
         });
-        assertEquals("Mensaje y Usuario no pueden ser null", ex.getMessage());
+        assertEquals("El usuario y su nombre no pueden ser nulos.", ex.getMessage());
     }
 
     // RS10
@@ -138,6 +138,6 @@ public class ReservaSubjectTest {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             reservaSubject.notificarReservaCancelada("Reserva cancelada para el 10/05", null);
         });
-        assertEquals("Mensaje y Usuario no pueden ser null", ex.getMessage());
+        assertEquals("El usuario y su nombre no pueden ser nulos.", ex.getMessage());
     }
 }

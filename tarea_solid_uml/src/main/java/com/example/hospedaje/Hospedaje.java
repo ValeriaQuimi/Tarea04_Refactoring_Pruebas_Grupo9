@@ -1,0 +1,39 @@
+package com.example.hospedaje;
+
+import com.example.patrones.decorator.IHabitacion;
+import com.example.interfaces.Reservable;
+
+public class Hospedaje implements Reservable {
+    private Hotel hotel;
+    private IHabitacion habitacion;
+
+    public Hospedaje(IHabitacion habitacion) {
+        this.habitacion = habitacion;
+    }
+
+    @Override
+    public double calcularPrecio() {
+        return habitacion.calcularPrecio();
+    }
+
+    @Override
+    public boolean verificarDisponibilidad() {
+        return habitacion.estaDisponible();
+    }
+
+    public void bloquearTemporalmente() {
+        if (habitacion.estaDisponible()) {
+            habitacion.reservar();
+        }
+    }
+
+    public IHabitacion getHabitacion() {
+        return habitacion;
+    }
+
+    void reservar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+}

@@ -4,12 +4,9 @@
  */
 package com.example.hospedaje;
 
+import com.example.enums.TipoHabitacion;
 import com.example.patrones.factory.Habitacion;
 import java.util.List;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,7 +18,7 @@ public class HotelTest {
 
     static class HabitacionStub extends Habitacion {
         public HabitacionStub(int idHotel, int numero) {
-            super(idHotel, numero);
+            super(idHotel, numero, TipoHabitacion.ESTANDAR);
         }
 
         @Override
@@ -29,10 +26,6 @@ public class HotelTest {
             return 100.0;
         }
 
-        @Override
-        public void mostrarDetalles() {
-            // no necesario para el test
-        }
     }
 
     @Test

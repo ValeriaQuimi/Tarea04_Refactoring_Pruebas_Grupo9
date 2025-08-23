@@ -1,13 +1,10 @@
 package com.example.patrones.factory;
 
+import com.example.enums.TipoHabitacion;
+
 public class HabitacionSuite extends Habitacion {
     public HabitacionSuite(int idHotel, int numero) {
-        super(idHotel, numero);
-    }
-
-    @Override
-    public void mostrarDetalles() {
-        System.out.println("Habitación SUITE Nº " + numero + " - Hotel ID: " + idHotel + " - Estado: " + estado);
+        super(idHotel, numero, TipoHabitacion.SUITE);
     }
 
     @Override

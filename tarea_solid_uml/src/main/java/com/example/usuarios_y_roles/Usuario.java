@@ -14,6 +14,7 @@ public class Usuario {
         this.correo = correo;
     }
 
+
     public Email getCorreo() {
         return correo;
     }

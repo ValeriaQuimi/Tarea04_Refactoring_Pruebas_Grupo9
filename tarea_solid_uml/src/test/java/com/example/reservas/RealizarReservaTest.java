@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 import com.example.interfaces.Reservable;
 import com.example.pagos.PagoService;
 import com.example.patrones.observer.ReservaObserver;
+import com.example.usuarios_y_roles.Email;
 import com.example.usuarios_y_roles.Usuario;
 
 public class RealizarReservaTest {
@@ -77,7 +78,8 @@ public class RealizarReservaTest {
 
     @BeforeEach
     void setUp() {
-        usuario = new Usuario(1, "Samuel", "samuel@egmail.com");
+        Email correo = new Email("axel@example.com");
+        usuario = new Usuario(1, "Samuel", correo);
     }
 
     // RR1 - Item no disponible 
@@ -153,7 +155,8 @@ public class RealizarReservaTest {
 
         // Ejecutar método para verificar que no falla con observers vacíos
         ReservableTest item = new ReservableTest(false, 50.0);
-        Usuario otroUsuario = new Usuario(2, "Ana", "ana@mail.com");
+        Email correo1 = new Email("ana@mail.com");
+        Usuario otroUsuario = new Usuario(2, "Ana", correo1);
 
         assertDoesNotThrow(() -> rr.ejecutar(otroUsuario, item));
     }

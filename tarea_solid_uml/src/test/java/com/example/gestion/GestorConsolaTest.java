@@ -6,6 +6,7 @@ package com.example.gestion;
 
 import com.example.interfaces.GestorDeAccion;
 import com.example.soporte.Incidente;
+import com.example.usuarios_y_roles.Email;
 import com.example.usuarios_y_roles.Usuario;
 import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.AfterEach;
@@ -49,7 +50,8 @@ public class GestorConsolaTest {
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         GestorDeAccion gestor = new GestorConsola();
-        Usuario usuario = new Usuario(1, "Juan", "juan@mail.com");
+        Email email = new Email("juan@mail.com");
+        Usuario usuario = new Usuario(1, "Juan", email);
         Incidente incidente = new Incidente(1, usuario, "Error en el sistema");
 
         String accion = gestor.obtenerAccion(incidente);
@@ -63,7 +65,8 @@ public class GestorConsolaTest {
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         GestorDeAccion gestor = new GestorConsola();
-        Usuario usuario = new Usuario(2, "Ana", "ana@mail.com");
+         Email email = new Email("ana@mail.com");
+        Usuario usuario = new Usuario(2, "Ana",email );
         Incidente incidente = new Incidente(2, usuario, "Problema de red");
 
         String accion = gestor.obtenerAccion(incidente);
@@ -77,7 +80,8 @@ public class GestorConsolaTest {
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         GestorDeAccion gestor = new GestorConsola();
-        Usuario usuario = new Usuario(3, "Luis", "luis@mail.com");
+         Email email = new Email("luis@mail.com");
+        Usuario usuario = new Usuario(3, "Luis", email);
         Incidente incidente = new Incidente(3, usuario, "Pantalla congelada");
 
         String accion = gestor.obtenerAccion(incidente);
@@ -91,7 +95,8 @@ public class GestorConsolaTest {
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         GestorDeAccion gestor = new GestorConsola();
-        Usuario usuario = new Usuario(4, "Pedro", "pedro@mail.com");
+       Email email = new Email("pedro@mail.com");
+        Usuario usuario = new Usuario(4, "Pedro",email);
         Incidente incidente = new Incidente(4, usuario, "Sin descripción");
 
         String accion = gestor.obtenerAccion(incidente);

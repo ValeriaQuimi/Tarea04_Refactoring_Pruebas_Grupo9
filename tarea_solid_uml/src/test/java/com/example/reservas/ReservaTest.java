@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import com.example.hospedaje.Hospedaje;
 
 import com.example.patrones.factory.HabitacionEstandar;
+import com.example.usuarios_y_roles.Email;
 import com.example.usuarios_y_roles.Usuario;
 
 public class ReservaTest {
@@ -26,7 +27,8 @@ public class ReservaTest {
 
     @BeforeEach
     void setUp() {
-        usuarioSamuel = new Usuario(1, "Samuel", "samuel@gmail.com");
+        Email correo = new Email("axel@example.com");
+        usuarioSamuel = new Usuario(1, "Samuel", correo);
         habitacion = new HabitacionEstandar(101, 1);
         hospedaje = new Hospedaje(habitacion);
     }

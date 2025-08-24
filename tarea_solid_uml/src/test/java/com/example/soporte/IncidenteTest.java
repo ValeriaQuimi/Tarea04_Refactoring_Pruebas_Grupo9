@@ -5,6 +5,7 @@
 package com.example.soporte;
 
 import com.example.enums.EstadoIncidente;
+import com.example.usuarios_y_roles.Email;
 import com.example.usuarios_y_roles.Usuario;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -43,7 +44,8 @@ public class IncidenteTest {
      */
    @Test
     public void testConstructorYGetters() {
-        Usuario usuario = new Usuario(1, "Axel", "axel@example.com");
+        Email correo = new Email("axel@example.com");
+        Usuario usuario = new Usuario(1, "Axel", correo);
         Incidente incidente = new Incidente(10, usuario, "Falla en la conexión");
 
         assertEquals(10, incidente.getId());
@@ -54,22 +56,26 @@ public class IncidenteTest {
 
     @Test
     public void testSetDescripcion() {
-        Incidente incidente = new Incidente(1, new Usuario(1, "Axel", "axel@example.com"), "Inicial");
+        Email correo = new Email("axel@example.com");
+        Incidente incidente = new Incidente(1, new Usuario(1, "Axel", correo), "Inicial");
         incidente.setDescripcion("Nueva descripción");
         assertEquals("Nueva descripción", incidente.getDescripcion());
     }
 
     @Test
     public void testSetId() {
-        Incidente incidente = new Incidente(1, new Usuario(1, "Axel", "axel@example.com"), "Desc");
+        Email correo = new Email("axel@example.com");
+        Incidente incidente = new Incidente(1, new Usuario(1, "Axel", correo), "Desc");
         incidente.setId(5);
         assertEquals(5, incidente.getId());
     }
 
     @Test
     public void testSetUsuarioReportante() {
-        Usuario u1 = new Usuario(1, "Axel", "axel@example.com");
-        Usuario u2 = new Usuario(2, "Maria", "maria@example.com");
+        Email correo = new Email("axel@example.com");
+        Usuario u1 = new Usuario(1, "Axel", correo);
+         Email correo1 = new Email("maria@example.com");
+        Usuario u2 = new Usuario(2, "Maria", correo);
         Incidente incidente = new Incidente(1, u1, "Desc");
         incidente.setUsuarioReportante(u2);
         assertEquals(u2, incidente.getUsuarioReportante());
@@ -77,21 +83,24 @@ public class IncidenteTest {
 
     @Test
     public void testSetEstado() {
-        Incidente incidente = new Incidente(1, new Usuario(1, "Axel", "axel@example.com"), "Desc");
+         Email correo = new Email("axel@example.com");
+        Incidente incidente = new Incidente(1, new Usuario(1, "Axel", correo), "Desc");
         incidente.setEstado(EstadoIncidente.ESCALADO);
         assertEquals(EstadoIncidente.ESCALADO, incidente.getEstado());
     }
 
     @Test
     public void testResolverIncidente() {
-        Incidente incidente = new Incidente(1, new Usuario(1, "Axel", "axel@example.com"), "Desc");
+         Email correo = new Email("axel@example.com");
+        Incidente incidente = new Incidente(1, new Usuario(1, "Axel", correo), "Desc");
         incidente.resolverIncidente();
         assertEquals(EstadoIncidente.RESUELTO, incidente.getEstado());
     }
 
     @Test
     public void testEscalar() {
-        Incidente incidente = new Incidente(1, new Usuario(1, "Axel", "axel@example.com"), "Desc");
+        Email correo = new Email("axel@example.com");
+        Incidente incidente = new Incidente(1, new Usuario(1, "Axel", correo), "Desc");
         incidente.escalar();
         assertEquals(EstadoIncidente.ESCALADO, incidente.getEstado());
     }

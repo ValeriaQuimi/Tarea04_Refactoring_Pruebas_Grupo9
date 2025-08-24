@@ -44,10 +44,12 @@ public class AgenteDeSoporteTest {
      */
   @Test
 public void testGestionarIncidente_resolver_sinMockito() {
-    Usuario usuario = new Usuario(1, "Juan", "juan@mail.com");
+    Email correo = new Email("agente@mail.com");
+    Usuario usuario = new Usuario(1, "Juan", correo);
     Incidente incidente = new Incidente(1, usuario, "Problema X");
-    AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente1", "agente@mail.com");
+ 
 
+AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente1", correo);
     GestorDeAccion gestor = new GestorDeAccion() {
         @Override
         public String obtenerAccion(Incidente inc) {
@@ -62,10 +64,12 @@ public void testGestionarIncidente_resolver_sinMockito() {
 
      @Test
     public void testGestionarIncidente_escalar() {
-        Usuario usuario = new Usuario(1, "Juan", "juan@mail.com");
+Email correo = new Email("agente2@mail.com");
+        Usuario usuario = new Usuario(1, "Juan", correo);
         Incidente incidente = new Incidente(2, usuario, "Problema Y");
-        AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente2", "agente2@mail.com");
+      
 
+AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente2", correo);
         GestorDeAccion gestor = new GestorDeAccion() {
             @Override
             public String obtenerAccion(Incidente inc) {
@@ -80,10 +84,11 @@ public void testGestionarIncidente_resolver_sinMockito() {
 
     @Test
     public void testGestionarIncidente_accionNoValida() {
-        Usuario usuario = new Usuario(1, "Juan", "juan@mail.com");
+  Email correo = new Email("agente3@mail.com");
+        Usuario usuario = new Usuario(1, "Juan", correo);
         Incidente incidente = new Incidente(3, usuario, "Problema Z");
-        AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente3", "agente3@mail.com");
-
+  
+AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente3", correo);
         GestorDeAccion gestor = new GestorDeAccion() {
             @Override
             public String obtenerAccion(Incidente inc) {
@@ -98,7 +103,9 @@ public void testGestionarIncidente_resolver_sinMockito() {
     }
     @Test
 public void testGestionarIncidente_incidenteNull() {
-    AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente4", "agente4@mail.com");
+
+    Email correo = new Email("agente4@mail.com");
+AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente4", correo);
     GestorDeAccion gestor = new GestorDeAccion() {
         @Override
         public String obtenerAccion(Incidente inc) {
@@ -114,10 +121,12 @@ public void testGestionarIncidente_incidenteNull() {
 
 @Test
 public void testGestionarIncidente_gestorNull() {
-    Usuario usuario = new Usuario(1, "Juan", "juan@mail.com");
+    Email correo = new Email("agente5@mail.com");
+    Usuario usuario = new Usuario(1, "Juan", correo);
+    
     Incidente incidente = new Incidente(4, usuario, "Problema W");
-    AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente5", "agente5@mail.com");
-
+    
+AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente5", correo);
     // No debería lanzar excepción, solo no hace nada
     assertDoesNotThrow(() -> {
         agente.gestionarIncidente(incidente, null);

@@ -1,6 +1,9 @@
 package com.example.patrones.decorator;
 
+import java.util.logging.Logger;
+
 public class DesayunoDecorator extends HabitacionDecorator {
+    private static final Logger logger = Logger.getLogger(DesayunoDecorator.class.getName());
     private double costoDesayuno;
 
     public DesayunoDecorator(IHabitacion habitacion, double costoDesayuno) {
@@ -18,7 +21,7 @@ public class DesayunoDecorator extends HabitacionDecorator {
 
     @Override
     public void mostrarDetalles() {
-        habitacion.mostrarDetalles();
-        System.out.println(" + Desayuno incluido ($" + costoDesayuno + ")");
+        super.mostrarDetalles();
+        logger.info(" + Desayuno incluido ($" + costoDesayuno + ")");
     }
 }

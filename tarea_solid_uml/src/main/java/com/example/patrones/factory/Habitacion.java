@@ -1,11 +1,13 @@
-
 package com.example.patrones.factory;
 
 import com.example.enums.EstadoHabitacion;
 import com.example.enums.TipoHabitacion;
 import com.example.patrones.decorator.IHabitacion;
 
+import java.util.logging.Logger;
+
 public abstract class Habitacion implements IHabitacion {
+    private static final Logger logger = Logger.getLogger(Habitacion.class.getName());
     protected int idHotel;
     protected int numero;
     protected EstadoHabitacion estado; // disponible, reservada, ocupada, mantenimiento
@@ -36,7 +38,7 @@ public abstract class Habitacion implements IHabitacion {
      // Template Method
     @Override
     public final void mostrarDetalles() {
-        System.out.println("Habitación " + tipo + " Nº " + numero +
+        logger.info("Habitación " + tipo + " Nº " + numero +
                            " - Hotel ID: " + idHotel + " - Estado: " + estado);
     }
 

@@ -5,10 +5,7 @@
 package com.example.usuarios_y_roles;
 
 import com.example.turismo_y_paseos.PaseoTuristico;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,25 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author SRoman
  */
 public class AdministradorTest {
-    
-    public AdministradorTest() {
-    }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
-    }
 
     /**
      * Test of configurarPoliticas method, of class Administrador.
@@ -46,7 +24,7 @@ public class AdministradorTest {
 
         assertEquals(1, admin.getId());
         assertEquals("Juan Pérez", admin.getNombre());
-        assertEquals("juan@example.com", admin.getCorreo());
+        assertEquals("juan@example.com", admin.getCorreo().getValor());
     }
 
     @Test

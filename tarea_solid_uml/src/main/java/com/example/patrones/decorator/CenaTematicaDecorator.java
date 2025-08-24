@@ -1,6 +1,9 @@
 package com.example.patrones.decorator;
 
+import java.util.logging.Logger;
+
 public class CenaTematicaDecorator extends PaqueteDecorator {
+    private static final Logger logger = Logger.getLogger(CenaTematicaDecorator.class.getName());
     private double costoCena;
 
     public CenaTematicaDecorator(IPaqueteTuristico paquete, double costoCena) {
@@ -16,6 +19,6 @@ public class CenaTematicaDecorator extends PaqueteDecorator {
     @Override
     public void mostrarDetalles() {
         paquete.mostrarDetalles();
-        System.out.println(" + Cena temática incluida ($" + costoCena + ")");
+        logger.info(" + Cena temática incluida ($" + costoCena + ")");
     }
 }

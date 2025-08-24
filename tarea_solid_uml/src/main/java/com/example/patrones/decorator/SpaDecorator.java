@@ -1,6 +1,9 @@
 package com.example.patrones.decorator;
 
+import java.util.logging.Logger;
+
 public class SpaDecorator extends PaqueteDecorator {
+    private static final Logger logger = Logger.getLogger(SpaDecorator.class.getName());
     private double costoSpa;
 
     public SpaDecorator(IPaqueteTuristico paquete, double costoSpa) {
@@ -16,6 +19,6 @@ public class SpaDecorator extends PaqueteDecorator {
     @Override
     public void mostrarDetalles() {
         paquete.mostrarDetalles();
-        System.out.println(" + Paquete de spa incluido ($" + costoSpa + ")");
+        logger.info(" + Paquete de spa incluido ($" + costoSpa + ")");
     }
 }

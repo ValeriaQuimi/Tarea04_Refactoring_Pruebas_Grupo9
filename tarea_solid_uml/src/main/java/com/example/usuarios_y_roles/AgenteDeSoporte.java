@@ -3,8 +3,10 @@ package com.example.usuarios_y_roles;
 import com.example.enums.EstadoIncidente;
 import com.example.interfaces.GestorDeAccion;
 import com.example.soporte.Incidente;
+import java.util.logging.Logger;
 
 public class AgenteDeSoporte extends Usuario{
+    private static final Logger logger = Logger.getLogger(AgenteDeSoporte.class.getName());
 
 
     public AgenteDeSoporte(int id, String nombre, Email correo) {
@@ -13,19 +15,19 @@ public class AgenteDeSoporte extends Usuario{
  
     public void gestionarIncidente(Incidente incidente, GestorDeAccion gestorDeAccion) {
         if (incidente == null) {
-            System.out.println("Error: incidente es null. No se puede gestionar.");
+            logger.warning("Error: incidente es null. No se puede gestionar.");
             return;
         }
 
         if (gestorDeAccion == null) {
-            System.out.println("Error: gestorDeAccion es null. No se puede obtener acción.");
+            logger.warning("Error: gestorDeAccion es null. No se puede obtener acción.");
             return;
         }
 
-        System.out.println("Gestionando incidente de: " + incidente.getDescripcion());
+        logger.info("Gestionando incidente de: " + incidente.getDescripcion());
 
         incidente.setEstado(EstadoIncidente.EN_PROCESO);
-        System.out.println("Incidente en proceso");
+        logger.info("Incidente en proceso");
         
         String accion = gestorDeAccion.obtenerAccion(incidente);
 
@@ -37,7 +39,7 @@ public class AgenteDeSoporte extends Usuario{
                 incidente.escalarIncidente();
                 break;
             default:
-                System.out.println("Acción no válida.");
+                logger.warning("Acción no válida.");
         }
     }
 }

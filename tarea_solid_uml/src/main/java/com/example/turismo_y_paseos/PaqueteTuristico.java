@@ -3,7 +3,10 @@ package com.example.turismo_y_paseos;
 import com.example.hospedaje.Hospedaje;
 import com.example.patrones.decorator.IPaqueteTuristico;
 
+import java.util.logging.Logger;
+
 public class PaqueteTuristico implements IPaqueteTuristico {
+    private static final Logger logger = Logger.getLogger(PaqueteTuristico.class.getName());
     private Hospedaje hospedaje;
     private PaseoTuristico paseo;
     private double descuento;
@@ -28,14 +31,14 @@ public class PaqueteTuristico implements IPaqueteTuristico {
     }
     @Override
     public void mostrarDetalles() {
-        System.out.println("Paquete turístico:");
+        logger.info("Paquete turístico:");
         if (hospedaje != null) {
             hospedaje.mostrarDetalles();
         }
         if (paseo != null) {
             paseo.mostrarDetalles();
         }
-        System.out.println("Descuento aplicado: $" + descuento);
+        logger.info("Descuento aplicado: $" + descuento);
     }
 
 

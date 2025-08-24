@@ -29,8 +29,8 @@ class HabitacionSuiteTest {
 
     @Test
     void calcularPrecioLanzaUnsupportedOperation() {
-        HabitacionSuite suite = new HabitacionSuite(5, 501);
-        assertThrows(UnsupportedOperationException.class, suite::calcularPrecio);
+    HabitacionSuite suite = new HabitacionSuite(5, 501);
+    assertEquals(180.00, suite.calcularPrecio(), 0.01, "calcularPrecio debe retornar 180.00");
     }
 
 }

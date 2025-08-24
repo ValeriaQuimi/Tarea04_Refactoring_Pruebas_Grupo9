@@ -7,10 +7,7 @@ package com.example.usuarios_y_roles;
 import com.example.enums.EstadoIncidente;
 import com.example.interfaces.GestorDeAccion;
 import com.example.soporte.Incidente;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,25 +16,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author SRoman
  */
 public class AgenteDeSoporteTest {
-    
-    public AgenteDeSoporteTest() {
-    }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
-    }
 
     /**
      * Test of gestionarIncidente method, of class AgenteDeSoporte.

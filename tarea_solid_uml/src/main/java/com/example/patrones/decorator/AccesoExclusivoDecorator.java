@@ -1,6 +1,9 @@
 package com.example.patrones.decorator;
 
+import java.util.logging.Logger;
+
 public class AccesoExclusivoDecorator extends HabitacionDecorator {
+    private static final Logger logger = Logger.getLogger(AccesoExclusivoDecorator.class.getName());
     private double costoAcceso;
 
     public AccesoExclusivoDecorator(IHabitacion habitacion, double costoAcceso) {
@@ -15,7 +18,7 @@ public class AccesoExclusivoDecorator extends HabitacionDecorator {
 
     @Override
     public void mostrarDetalles() {
-        habitacion.mostrarDetalles();
-        System.out.println(" + Acceso a áreas exclusivas ($" + costoAcceso + ")");
+        super.mostrarDetalles();
+        logger.info(" + Acceso a áreas exclusivas ($" + costoAcceso + ")");
     }
 }

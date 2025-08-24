@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.example.usuarios_y_roles.Email;
 import com.example.usuarios_y_roles.Usuario;
 
 public class ReservaSubjectTest {
@@ -41,7 +42,7 @@ public class ReservaSubjectTest {
     void setUp() {
         reservaSubject = new ReservaSubject();
         testObserver = new TestObserver();
-        usuario = new Usuario(1, "Samuel", "samuel@gmail.com");
+        usuario = new Usuario(1, "Samuel", new Email("samuel@gmail.com"));
     }
 
     // RS1

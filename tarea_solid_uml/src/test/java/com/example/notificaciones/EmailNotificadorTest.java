@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.example.usuarios_y_roles.Email;
 import com.example.usuarios_y_roles.Usuario;
 
 public class EmailNotificadorTest {
@@ -16,7 +17,7 @@ public class EmailNotificadorTest {
     @BeforeEach
     void setUp() {
         notificador = new EmailNotificador();
-        samuel = new Usuario(1, "Samuel", "samuel@gmail.com");
+        samuel = new Usuario(1, "Samuel", new Email("samuel@gmail.com"));
     }
 
     @Test

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import com.example.interfaces.Notificador;
 import com.example.mensajes.ConstructorMensaje;
+import com.example.usuarios_y_roles.Email;
 import com.example.usuarios_y_roles.Usuario;
 
 public class EmailReservaObserverTest {
@@ -33,7 +34,7 @@ public class EmailReservaObserverTest {
 
     @Test
     void testOnReservaCreada_enviaAsuntoYMensaje() {
-        Usuario usuario = new Usuario(1, "Miriam", "miriam@example.com");
+        Usuario usuario = new Usuario(1, "Miriam", new Email("miriam@example.com"));
         String mensaje = "Reserva confirmada";
 
         observer.onReservaCreada(mensaje, usuario);
@@ -47,7 +48,7 @@ public class EmailReservaObserverTest {
 
     @Test
     void testOnReservaCancelada_enviaAsuntoYMensaje() {
-        Usuario usuario = new Usuario(2, "Samuel", "samuel@example.com");
+        Usuario usuario = new Usuario(2, "Samuel", new Email("samuel@example.com"));
         String mensaje = "Reserva cancelada";
 
         observer.onReservaCancelada(mensaje, usuario);

@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import com.example.usuarios_y_roles.Email;
 import com.example.usuarios_y_roles.Usuario;
 
 public class ConstructorMensajeTest {
@@ -11,7 +12,7 @@ public class ConstructorMensajeTest {
     // CM01
     @Test
     void testConstruirReservaCreadaMensajeNormal() {
-        Usuario usuario = new Usuario(1, "Miriam", "miriam@example.com");
+        Usuario usuario = new Usuario(1, "Miriam", new Email("miriam@example.com"));
         String mensaje = "Reserva confirmada para el 05/10";
 
         String resultado = ConstructorMensaje.construirReservaCreada(usuario, mensaje);
@@ -23,7 +24,7 @@ public class ConstructorMensajeTest {
     // CM02
     @Test
     void testConstruirReservaCreadaMensajeVacio() {
-        Usuario usuario = new Usuario(2, "Miriam", "miriam@example.com");
+        Usuario usuario = new Usuario(2, "Miriam", new Email("miriam@example.com"));
         String mensaje = "";
 
         String resultado = ConstructorMensaje.construirReservaCreada(usuario, mensaje);
@@ -35,7 +36,7 @@ public class ConstructorMensajeTest {
     // CM03
     @Test
     void testConstruirReservaCreadaNombreVacio() {
-        Usuario usuario = new Usuario(3, "", "usuario3@example.com");
+        Usuario usuario = new Usuario(3, "", new Email("usuario3@example.com"));
         String mensaje = "Reserva para el 05/10";
 
         String resultado = ConstructorMensaje.construirReservaCreada(usuario, mensaje);
@@ -47,7 +48,7 @@ public class ConstructorMensajeTest {
     // CM04
     @Test
     void testConstruirReservaCanceladaMensajeNormal() {
-        Usuario usuario = new Usuario(4, "Samuel", "samuel@example.com");
+        Usuario usuario = new Usuario(4, "Samuel", new Email("samuel@example.com"));
         String mensaje = "Reserva cancelada para el 10/05";
 
         String resultado = ConstructorMensaje.construirReservaCancelada(usuario, mensaje);
@@ -59,7 +60,7 @@ public class ConstructorMensajeTest {
     // CM05
     @Test
     void testConstruirReservaCanceladaMensajeVacio() {
-        Usuario usuario = new Usuario(5, "Samuel", "samuel@example.com");
+        Usuario usuario = new Usuario(5, "Samuel", new Email("samuel@example.com"));
         String mensaje = "";
 
         String resultado = ConstructorMensaje.construirReservaCancelada(usuario, mensaje);
@@ -71,7 +72,7 @@ public class ConstructorMensajeTest {
     // CM06
     @Test
     void testConstruirReservaCanceladaNombreVacio() {
-        Usuario usuario = new Usuario(6, "", "usuario6@example.com");
+        Usuario usuario = new Usuario(6, "", new Email("samuel@example.com"));
         String mensaje = "Reserva cancelada para el 05/10";
 
         String resultado = ConstructorMensaje.construirReservaCancelada(usuario, mensaje);

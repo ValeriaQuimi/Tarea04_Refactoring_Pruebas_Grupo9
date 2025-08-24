@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import com.example.interfaces.Notificador;
 import com.example.patrones.observer.EmailReservaObserver;
 import com.example.patrones.observer.ReservaObserver;
+import com.example.usuarios_y_roles.Email;
 import com.example.usuarios_y_roles.Usuario;
 import com.example.validaciones.Validador;
 
@@ -33,7 +34,7 @@ public class ValidadorTest {
     // Caso 2: nombre del usuario nulo
     @Test
     void testValidarReservaNombreUsuarioNulo() {
-        Usuario usuario = new Usuario(1, null, "correo@example.com");
+        Usuario usuario = new Usuario(1, null, new Email("correo@example.com"));
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             Validador.validarReserva(usuario, "mensaje ejemplo");
         });
@@ -43,7 +44,7 @@ public class ValidadorTest {
     // Caso 3: mensaje nulo
     @Test
     void testValidarReservaMensajeNulo() {
-        Usuario usuario = new Usuario(2, "Miriam", "miriam@example.com");
+        Usuario usuario = new Usuario(2, "Miriam", new Email("miriam@example.com"));
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             Validador.validarReserva(usuario, null);
         });
@@ -53,7 +54,7 @@ public class ValidadorTest {
     // Caso 4: datos válidos → no lanza excepción
     @Test
     void testValidarReserva_valido() {
-        Usuario usuario = new Usuario(3, "Samuel", "samuel@example.com");
+        Usuario usuario = new Usuario(3, "Samuel", new Email("samuel@example.com"));
         assertDoesNotThrow(() -> Validador.validarReserva(usuario, "Mensaje válido"));
     }
 

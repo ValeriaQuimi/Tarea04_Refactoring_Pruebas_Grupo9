@@ -8,9 +8,15 @@ public class Administrador extends Usuario{
     super(id, nombre, new Email(correoStr));
 }
     
-    public void configurarPoliticas(){}
+    public void configurarPoliticas(){
+    // logica de configurar politicas
+    }
 
-    public void  ajustarPlazas(PaseoTuristico paseo){}
+    public void  ajustarPlazas(PaseoTuristico paseo){
+    // logica para ajustar plazas
+    }
     
-    public void integrarServicio(){}
+    public void integrarServicio(){
+    // logica para integrar servicios
+    }
 }

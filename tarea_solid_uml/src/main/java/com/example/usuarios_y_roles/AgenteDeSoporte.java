@@ -7,10 +7,9 @@ import com.example.soporte.Incidente;
 public class AgenteDeSoporte extends Usuario{
 
 
-    public AgenteDeSoporte(int id, String nombre, String correo) {
+    public AgenteDeSoporte(int id, String nombre, Email correo) {
         super(id, nombre, correo);
     }
-
  
     public void gestionarIncidente(Incidente incidente, GestorDeAccion gestorDeAccion) {
         if (incidente == null) {

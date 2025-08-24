@@ -21,22 +21,22 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author SRoman
  */
 public class GestorConsolaTest {
-    
+
     public GestorConsolaTest() {
     }
-    
+
     @BeforeAll
     public static void setUpClass() {
     }
-    
+
     @AfterAll
     public static void tearDownClass() {
     }
-    
+
     @BeforeEach
     public void setUp() {
     }
-    
+
     @AfterEach
     public void tearDown() {
     }
@@ -44,8 +44,8 @@ public class GestorConsolaTest {
     /**
      * Test of obtenerAccion method, of class GestorConsola.
      */
-   @Test
-    public void testObtenerAccionResolver() {
+    @Test
+    void testObtenerAccionResolver() {
         String simulatedInput = "resolver\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
@@ -60,13 +60,13 @@ public class GestorConsolaTest {
     }
 
     @Test
-    public void testObtenerAccionEscalar() {
+    void testObtenerAccionEscalar() {
         String simulatedInput = "escalar\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         GestorDeAccion gestor = new GestorConsola();
-         Email email = new Email("ana@mail.com");
-        Usuario usuario = new Usuario(2, "Ana",email );
+        Email email = new Email("ana@mail.com");
+        Usuario usuario = new Usuario(2, "Ana", email);
         Incidente incidente = new Incidente(2, usuario, "Problema de red");
 
         String accion = gestor.obtenerAccion(incidente);
@@ -75,12 +75,12 @@ public class GestorConsolaTest {
     }
 
     @Test
-    public void testObtenerAccionMayusculas() {
+    void testObtenerAccionMayusculas() {
         String simulatedInput = "RESOLVER\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         GestorDeAccion gestor = new GestorConsola();
-         Email email = new Email("luis@mail.com");
+        Email email = new Email("luis@mail.com");
         Usuario usuario = new Usuario(3, "Luis", email);
         Incidente incidente = new Incidente(3, usuario, "Pantalla congelada");
 
@@ -90,18 +90,18 @@ public class GestorConsolaTest {
     }
 
     @Test
-    public void testObtenerAccionVacio() {
+    void testObtenerAccionVacio() {
         String simulatedInput = "\n"; // Entrada vacía
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         GestorDeAccion gestor = new GestorConsola();
-       Email email = new Email("pedro@mail.com");
-        Usuario usuario = new Usuario(4, "Pedro",email);
+        Email email = new Email("pedro@mail.com");
+        Usuario usuario = new Usuario(4, "Pedro", email);
         Incidente incidente = new Incidente(4, usuario, "Sin descripción");
 
         String accion = gestor.obtenerAccion(incidente);
 
         assertEquals("", accion);
     }
-    
+
 }

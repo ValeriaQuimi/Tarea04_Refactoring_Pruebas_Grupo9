@@ -27,18 +27,27 @@ public class HospedajeTest {
         }
 
         @Override
-        public double calcularPrecio() { return precio; }
+        public double calcularPrecio() {
+            return precio;
+        }
 
         @Override
-        public void mostrarDetalles() { /* no necesario */ }
+        public void mostrarDetalles() {
+            /* no necesario */ }
 
         @Override
-        public boolean estaDisponible() { return disponible; }
+        public boolean estaDisponible() {
+            return disponible;
+        }
 
         @Override
-        public void reservar() { reservadoLlamado = true; }
+        public void reservar() {
+            reservadoLlamado = true;
+        }
 
-        public boolean isReservadoLlamado() { return reservadoLlamado; }
+        public boolean isReservadoLlamado() {
+            return reservadoLlamado;
+        }
     }
 
     @Test
@@ -77,40 +86,39 @@ public class HospedajeTest {
         Hospedaje hospedaje = new Hospedaje(h);
         assertSame(h, hospedaje.getHabitacion());
     }
-    //Test complementarios
+
+    // Test complementarios
     @Test
-public void testCalcularPrecioCero() {
-    HabitacionStub h = new HabitacionStub(0.0, true);
-    Hospedaje hospedaje = new Hospedaje(h);
-    assertEquals(0.0, hospedaje.calcularPrecio(), 0.0001);
-}
+    void testCalcularPrecioCero() {
+        HabitacionStub h = new HabitacionStub(0.0, true);
+        Hospedaje hospedaje = new Hospedaje(h);
+        assertEquals(0.0, hospedaje.calcularPrecio(), 0.0001);
+    }
 
-@Test
-public void testCalcularPrecioNegativo() {
-    HabitacionStub h = new HabitacionStub(-50.0, true);
-    Hospedaje hospedaje = new Hospedaje(h);
-    assertEquals(-50.0, hospedaje.calcularPrecio(), 0.0001);
-}
+    @Test
+    void testCalcularPrecioNegativo() {
+        HabitacionStub h = new HabitacionStub(-50.0, true);
+        Hospedaje hospedaje = new Hospedaje(h);
+        assertEquals(-50.0, hospedaje.calcularPrecio(), 0.0001);
+    }
 
-@Test
-public void testVerificarDisponibilidadNulo() {
-    Hospedaje hospedaje = new Hospedaje(null);
-    assertThrows(NullPointerException.class, hospedaje::verificarDisponibilidad);
-}
+    @Test
+    void testVerificarDisponibilidadNulo() {
+        Hospedaje hospedaje = new Hospedaje(null);
+        assertThrows(NullPointerException.class, hospedaje::verificarDisponibilidad);
+    }
 
-@Test
-public void testCalcularPrecioNulo() {
-    Hospedaje hospedaje = new Hospedaje(null);
-    assertThrows(NullPointerException.class, hospedaje::calcularPrecio);
-}
+    @Test
+    void testCalcularPrecioNulo() {
+        Hospedaje hospedaje = new Hospedaje(null);
+        assertThrows(NullPointerException.class, hospedaje::calcularPrecio);
+    }
 
-@Test
-public void testMostrarDetalles() {
-    HabitacionStub h = new HabitacionStub(100.0, true);
-    Hospedaje hospedaje = new Hospedaje(h);
-    assertDoesNotThrow(hospedaje::mostrarDetalles);
-}
+    @Test
+    void testMostrarDetalles() {
+        HabitacionStub h = new HabitacionStub(100.0, true);
+        Hospedaje hospedaje = new Hospedaje(h);
+        assertDoesNotThrow(hospedaje::mostrarDetalles);
+    }
 
-    
-    
 }

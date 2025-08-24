@@ -22,7 +22,7 @@ public class HotelTest {
     }
 
     @Test
-    public void testAgregarHabitacion() {
+    void testAgregarHabitacion() {
         Hotel hotel = new Hotel(1, "Hotel Test", "Calle Falsa 123");
         Habitacion habitacion = new HabitacionStub(1, 101);
 
@@ -34,7 +34,7 @@ public class HotelTest {
     }
 
     @Test
-    public void testGetHabitaciones() {
+    void testGetHabitaciones() {
         Hotel hotel = new Hotel(2, "Hotel Otro", "Av. Siempre Viva 456");
         assertNotNull(hotel.getHabitaciones());
         assertEquals(0, hotel.getHabitaciones().size());
@@ -42,7 +42,7 @@ public class HotelTest {
 
     // HT01: Agregar habitación nula
     @Test
-    public void testAgregarHabitacionNula() {
+    void testAgregarHabitacionNula() {
         Hotel hotel = new Hotel(3, "Hotel Nulo", "Calle Null 0");
         Exception exception = assertThrows(IllegalArgumentException.class, () -> hotel.agregarHabitacion(null));
         assertEquals("La habitacion no puede ser null", exception.getMessage());
@@ -50,7 +50,7 @@ public class HotelTest {
 
     // HT02: Crear hotel con nombre nulo
     @Test
-    public void testCrearHotelConNombreNula() {
+    void testCrearHotelConNombreNula() {
         Exception exNombre = assertThrows(IllegalArgumentException.class,
                 () -> new Hotel(4, null, "Calle X"));
         assertEquals("Los parametros no pueden ser nulos", exNombre.getMessage());
@@ -58,7 +58,7 @@ public class HotelTest {
 
     // HT02: Crear hotel con direccion nula
     @Test
-    public void testCrearHotelConDireccionNula() {
+    void testCrearHotelConDireccionNula() {
 
         Exception exDireccion = assertThrows(IllegalArgumentException.class,
                 () -> new Hotel(5, "Hotel X", null));

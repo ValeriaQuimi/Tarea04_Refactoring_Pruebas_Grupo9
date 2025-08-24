@@ -16,22 +16,22 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author SRoman
  */
 public class PagoServiceTest {
-    
+
     public PagoServiceTest() {
     }
-    
+
     @BeforeAll
     public static void setUpClass() {
     }
-    
+
     @AfterAll
     public static void tearDownClass() {
     }
-    
+
     @BeforeEach
     public void setUp() {
     }
-    
+
     @AfterEach
     public void tearDown() {
     }
@@ -40,7 +40,7 @@ public class PagoServiceTest {
      * Test of procesarPago method, of class PagoService.
      */
     @Test
-    public void testProcesarPagoMontoPositivo() {
+    void testProcesarPagoMontoPositivo() {
         PagoService pagoService = new PagoService();
         double monto = 100.0;
         boolean resultado = pagoService.procesarPago(monto);
@@ -48,7 +48,7 @@ public class PagoServiceTest {
     }
 
     @Test
-    public void testProcesarPagoMontoCero() {
+    void testProcesarPagoMontoCero() {
         PagoService pagoService = new PagoService();
         double monto = 0.0;
         boolean resultado = pagoService.procesarPago(monto);
@@ -56,11 +56,11 @@ public class PagoServiceTest {
     }
 
     @Test
-    public void testProcesarPagoMontoNegativo() {
+    void testProcesarPagoMontoNegativo() {
         PagoService pagoService = new PagoService();
         double monto = -50.0;
         boolean resultado = pagoService.procesarPago(monto);
         assertTrue(resultado, "Actualmente la implementación no valida monto negativo, devuelve true");
     }
-    
+
 }

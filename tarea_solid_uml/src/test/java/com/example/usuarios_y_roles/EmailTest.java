@@ -5,27 +5,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EmailTest {
     @Test
-    public void testCrearEmailValido() {
+     void testCrearEmailValido() {
         Email email = new Email("test@mail.com");
         assertEquals("test@mail.com", email.getValor());
     }
 
     @Test
-    public void testCrearEmailInvalido() {
+     void testCrearEmailInvalido() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Email("noemail");
         });
     }
 
     @Test
-    public void testCrearEmailNulo() {
+   void testCrearEmailNulo() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Email(null);
         });
     }
 
     @Test
-    public void testEqualsYHashCode() {
+     void testEqualsYHashCode() {
         Email email1 = new Email("a@mail.com");
         Email email2 = new Email("a@mail.com");
         Email email3 = new Email("b@mail.com");
@@ -35,7 +35,7 @@ public class EmailTest {
     }
 
     @Test
-    public void testToString() {
+     void testToString() {
         Email email = new Email("string@mail.com");
         assertEquals("string@mail.com", email.toString());
     }

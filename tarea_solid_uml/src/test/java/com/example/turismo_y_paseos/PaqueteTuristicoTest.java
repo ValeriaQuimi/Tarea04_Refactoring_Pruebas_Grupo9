@@ -43,7 +43,7 @@ public class PaqueteTuristicoTest {
     }
 
     @Test
-    public void testCalcularPrecio() {
+     void testCalcularPrecio() {
         IHabitacion habitacion = new HabitacionTest(200.0, true);
         Hospedaje hospedaje = new Hospedaje(habitacion);
 
@@ -57,7 +57,7 @@ public class PaqueteTuristicoTest {
     }
 
     @Test
-    public void testVerificarDisponibilidad_true() {
+    void testVerificarDisponibilidad_true() {
         IHabitacion habitacion = new HabitacionTest(100.0, true);
         Hospedaje hospedaje = new Hospedaje(habitacion);
 
@@ -69,7 +69,7 @@ public class PaqueteTuristicoTest {
     }
 
     @Test
-    public void testVerificarDisponibilidad_false() {
+     void testVerificarDisponibilidad_false() {
         IHabitacion habitacion = new HabitacionTest(100.0, true);
         Hospedaje hospedaje = new Hospedaje(habitacion);
 

@@ -11,35 +11,35 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UsuarioTest {
     
     @Test
-    public void testGetId() {
+    void testGetId() {
         Email email = new Email("maria@mail.com");
         Usuario usuario = new Usuario(1, "Maria", email);
         assertEquals(1, usuario.getId());
     }
 
     @Test
-    public void testGetNombre() {
+   void testGetNombre() {
         Email email = new Email("juan@mail.com");
         Usuario usuario = new Usuario(2, "Juan", email);
         assertEquals("Juan", usuario.getNombre());
     }
 
     @Test
-    public void testGetCorreo() {
+   void testGetCorreo() {
         Email email = new Email("ana@mail.com");
         Usuario usuario = new Usuario(3, "Ana", email);
         assertEquals(email, usuario.getCorreo());
     }
 
     @Test
-    public void testUsuarioConEmailInvalido() {
+   void testUsuarioConEmailInvalido() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Usuario(4, "Bad", new Email("bademail"));
         });
     }
 
     @Test
-    public void testUsuarioConEmailNulo() {
+ void testUsuarioConEmailNulo() {
         assertThrows(NullPointerException.class, () -> {
             new Usuario(5, "Null", null);
         });

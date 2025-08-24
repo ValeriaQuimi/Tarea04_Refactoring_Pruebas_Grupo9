@@ -17,7 +17,7 @@ public class PaseoTuristicoTest {
      * Test of calcularPrecio method, of class PaseoTuristico.
      */
  @Test
-    public void testCalcularPrecio() {
+    void testCalcularPrecio() {
         // Crear instancia con precio 150.0
         PaseoTuristico paseo = new PaseoTuristico("Tour cultural", 150.0);
         
@@ -29,7 +29,7 @@ public class PaseoTuristicoTest {
     }
 
     @Test
-    public void testVerificarDisponibilidadDisponible() {
+     void testVerificarDisponibilidadDisponible() {
         // Estado por defecto es DISPONIBLE
         PaseoTuristico paseo = new PaseoTuristico("Tour cultural", 150.0);
         
@@ -38,7 +38,7 @@ public class PaseoTuristicoTest {
     }
 
     @Test
-    public void testVerificarDisponibilidadNoDisponible() throws Exception {
+     void testVerificarDisponibilidadNoDisponible() throws Exception {
         // Crear instancia
         PaseoTuristico paseo = new PaseoTuristico("Tour cultural", 150.0);
         
@@ -51,7 +51,7 @@ public class PaseoTuristicoTest {
         assertFalse(paseo.verificarDisponibilidad());
     }
     @Test
-public void testVerificarDisponibilidadCancelado() throws Exception {
+ void testVerificarDisponibilidadCancelado() throws Exception {
     PaseoTuristico paseo = new PaseoTuristico("Tour cultural", 150.0);
     
     java.lang.reflect.Field estadoField = paseo.getClass().getDeclaredField("estado");
@@ -62,7 +62,7 @@ public void testVerificarDisponibilidadCancelado() throws Exception {
 }
 
 @Test
-public void testCalcularPrecioCero() {
+ void testCalcularPrecioCero() {
     PaseoTuristico paseo = new PaseoTuristico("Tour gratuito", 0.0);
     
     assertEquals(0.0, paseo.calcularPrecio(), 0.001);
@@ -70,14 +70,14 @@ public void testCalcularPrecioCero() {
 
 
 @Test
-public void testCalcularPrecioNegativo() {
+ void testCalcularPrecioNegativo() {
     PaseoTuristico paseo = new PaseoTuristico("Tour especial", -50.0);
     
     assertEquals(-50.0, paseo.calcularPrecio(), 0.001);
 }
 
 @Test
-public void testMostrarDetalles() {
+void testMostrarDetalles() {
     PaseoTuristico paseo = new PaseoTuristico("Tour cultural", 150.0);
     paseo.mostrarDetalles(); // Manual o usando System.setOut() para capturar
 }

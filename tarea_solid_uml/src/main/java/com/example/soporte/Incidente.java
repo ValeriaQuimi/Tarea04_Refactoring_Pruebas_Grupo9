@@ -57,7 +57,7 @@ public class Incidente {
 
     }
 
-    public void escalar(){
+    public void escalarIncidente(){
         this.estado= EstadoIncidente.ESCALADO;
         System.out.println("Incidente escalado");
 

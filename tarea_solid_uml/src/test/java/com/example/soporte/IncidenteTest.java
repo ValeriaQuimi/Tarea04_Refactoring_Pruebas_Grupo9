@@ -79,7 +79,7 @@ public class IncidenteTest {
     void testEscalar() {
         Email correo = new Email("axel@example.com");
         Incidente incidente = new Incidente(1, new Usuario(1, "Axel", correo), "Desc");
-        incidente.escalar();
+        incidente.escalarIncidente();
         assertEquals(EstadoIncidente.ESCALADO, incidente.getEstado());
     }
 

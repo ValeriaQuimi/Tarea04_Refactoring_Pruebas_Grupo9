@@ -16,12 +16,10 @@ public class PaqueteTuristico implements IPaqueteTuristico {
 
     @Override
     public double calcularPrecio() {
-        // Usar el precio decorado de la habitación
-        double precioHabitacion = 0.0;
         if (hospedaje.getHabitacion() != null) {
-            precioHabitacion = hospedaje.getHabitacion().calcularPrecio();
+            return hospedaje.getHabitacion().calcularPrecio() + paseo.calcularPrecio() - descuento;
         }
-        return precioHabitacion + paseo.calcularPrecio() - descuento;
+        else{ return  paseo.calcularPrecio() - descuento; }
     }
 
     @Override

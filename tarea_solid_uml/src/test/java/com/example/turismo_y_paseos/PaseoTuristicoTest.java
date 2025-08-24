@@ -74,4 +74,37 @@ public class PaseoTuristicoTest {
         // Verificar que no está disponible
         assertFalse(paseo.verificarDisponibilidad());
     }
+    @Test
+public void testVerificarDisponibilidadCancelado() throws Exception {
+    PaseoTuristico paseo = new PaseoTuristico("Tour cultural", 150.0);
+    
+    java.lang.reflect.Field estadoField = paseo.getClass().getDeclaredField("estado");
+    estadoField.setAccessible(true);
+    estadoField.set(paseo, EstadoPaseo.CANCELADO);
+    
+    assertFalse(paseo.verificarDisponibilidad());
+}
+
+@Test
+public void testCalcularPrecioCero() {
+    PaseoTuristico paseo = new PaseoTuristico("Tour gratuito", 0.0);
+    
+    assertEquals(0.0, paseo.calcularPrecio(), 0.001);
+}
+
+
+@Test
+public void testCalcularPrecioNegativo() {
+    PaseoTuristico paseo = new PaseoTuristico("Tour especial", -50.0);
+    
+    assertEquals(-50.0, paseo.calcularPrecio(), 0.001);
+}
+
+@Test
+public void testMostrarDetalles() {
+    PaseoTuristico paseo = new PaseoTuristico("Tour cultural", 150.0);
+    paseo.mostrarDetalles(); // Manual o usando System.setOut() para capturar
+}
+
+
 }

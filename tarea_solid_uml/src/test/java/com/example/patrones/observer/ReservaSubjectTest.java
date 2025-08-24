@@ -1,7 +1,9 @@
 package com.example.patrones.observer;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -50,9 +52,12 @@ public class ReservaSubjectTest {
     void testAgregarObserver_valido() {
         reservaSubject.agregarObserver(testObserver);
         reservaSubject.notificarReservaCreada("Reserva creada para el 10/05", usuario);
-        assertTrue(testObserver.llamadaCreada);
-        assertEquals("Reserva creada para el 10/05", testObserver.mensajeRecibido);
-        assertEquals(usuario, testObserver.usuarioRecibido);
+
+        assertAll(
+                () -> assertTrue(testObserver.llamadaCreada),
+                () -> assertEquals("Reserva creada para el 10/05", testObserver.mensajeRecibido),
+                () -> assertSame(usuario, testObserver.usuarioRecibido) 
+        );
     }
 
     // RS2

@@ -11,7 +11,7 @@ public abstract class Habitacion implements IHabitacion {
     protected EstadoHabitacion estado; // disponible, reservada, ocupada, mantenimiento
     protected TipoHabitacion tipo;
 
-    public Habitacion(int idHotel, int numero,TipoHabitacion tipo) {
+    protected Habitacion(int idHotel, int numero,TipoHabitacion tipo) {
         if (idHotel < 0) {
             throw new IllegalArgumentException("El id del hotel no puede ser negativo");
         }

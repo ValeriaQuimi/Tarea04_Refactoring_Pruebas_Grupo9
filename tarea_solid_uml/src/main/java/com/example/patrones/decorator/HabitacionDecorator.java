@@ -3,7 +3,7 @@ package com.example.patrones.decorator;
 public abstract class HabitacionDecorator implements IHabitacion {
     protected IHabitacion habitacion;
 
-    public HabitacionDecorator(IHabitacion habitacion) {
+    protected HabitacionDecorator(IHabitacion habitacion) {
         this.habitacion = habitacion;
     }
 

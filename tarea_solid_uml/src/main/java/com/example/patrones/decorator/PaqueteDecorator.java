@@ -3,7 +3,7 @@ package com.example.patrones.decorator;
 public abstract class PaqueteDecorator implements IPaqueteTuristico {
     protected IPaqueteTuristico paquete;
 
-    public PaqueteDecorator(IPaqueteTuristico paquete) {
+    protected PaqueteDecorator(IPaqueteTuristico paquete) {
         this.paquete = paquete;
     }
 

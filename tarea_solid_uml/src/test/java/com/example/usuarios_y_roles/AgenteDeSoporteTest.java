@@ -20,34 +20,32 @@ public class AgenteDeSoporteTest {
     /**
      * Test of gestionarIncidente method, of class AgenteDeSoporte.
      */
-  @Test
-public void testGestionarIncidente_resolver_sinMockito() {
-    Email correo = new Email("agente@mail.com");
-    Usuario usuario = new Usuario(1, "Juan", correo);
-    Incidente incidente = new Incidente(1, usuario, "Problema X");
- 
+    @Test
+    void testGestionarIncidente_resolver_sinMockito() {
+        Email correo = new Email("agente@mail.com");
+        Usuario usuario = new Usuario(1, "Juan", correo);
+        Incidente incidente = new Incidente(1, usuario, "Problema X");
 
-AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente1", correo);
-    GestorDeAccion gestor = new GestorDeAccion() {
-        @Override
-        public String obtenerAccion(Incidente inc) {
-            return "resolver";
-        }
-    };
+        AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente1", correo);
+        GestorDeAccion gestor = new GestorDeAccion() {
+            @Override
+            public String obtenerAccion(Incidente inc) {
+                return "resolver";
+            }
+        };
 
-    agente.gestionarIncidente(incidente, gestor);
+        agente.gestionarIncidente(incidente, gestor);
 
-    assertEquals(EstadoIncidente.RESUELTO, incidente.getEstado());
-}
+        assertEquals(EstadoIncidente.RESUELTO, incidente.getEstado());
+    }
 
-     @Test
-    public void testGestionarIncidente_escalar() {
-Email correo = new Email("agente2@mail.com");
+    @Test
+    void testGestionarIncidente_escalar() {
+        Email correo = new Email("agente2@mail.com");
         Usuario usuario = new Usuario(1, "Juan", correo);
         Incidente incidente = new Incidente(2, usuario, "Problema Y");
-      
 
-AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente2", correo);
+        AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente2", correo);
         GestorDeAccion gestor = new GestorDeAccion() {
             @Override
             public String obtenerAccion(Incidente inc) {
@@ -61,12 +59,12 @@ AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente2", correo);
     }
 
     @Test
-    public void testGestionarIncidente_accionNoValida() {
-  Email correo = new Email("agente3@mail.com");
+    void testGestionarIncidente_accionNoValida() {
+        Email correo = new Email("agente3@mail.com");
         Usuario usuario = new Usuario(1, "Juan", correo);
         Incidente incidente = new Incidente(3, usuario, "Problema Z");
-  
-AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente3", correo);
+
+        AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente3", correo);
         GestorDeAccion gestor = new GestorDeAccion() {
             @Override
             public String obtenerAccion(Incidente inc) {
@@ -79,35 +77,36 @@ AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente3", correo);
         // Estado debe ser EN_PROCESO porque se cambia antes del switch
         assertEquals(EstadoIncidente.EN_PROCESO, incidente.getEstado());
     }
+
     @Test
-public void testGestionarIncidente_incidenteNull() {
+    void testGestionarIncidente_incidenteNull() {
 
-    Email correo = new Email("agente4@mail.com");
-AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente4", correo);
-    GestorDeAccion gestor = new GestorDeAccion() {
-        @Override
-        public String obtenerAccion(Incidente inc) {
-            return "resolver";
-        }
-    };
+        Email correo = new Email("agente4@mail.com");
+        AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente4", correo);
+        GestorDeAccion gestor = new GestorDeAccion() {
+            @Override
+            public String obtenerAccion(Incidente inc) {
+                return "resolver";
+            }
+        };
 
-    // No debería lanzar excepción, solo no hace nada
-    assertDoesNotThrow(() -> {
-        agente.gestionarIncidente(null, gestor);
-    });
-}
+        // No debería lanzar excepción, solo no hace nada
+        assertDoesNotThrow(() -> {
+            agente.gestionarIncidente(null, gestor);
+        });
+    }
 
-@Test
-public void testGestionarIncidente_gestorNull() {
-    Email correo = new Email("agente5@mail.com");
-    Usuario usuario = new Usuario(1, "Juan", correo);
-    
-    Incidente incidente = new Incidente(4, usuario, "Problema W");
-    
-AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente5", correo);
-    // No debería lanzar excepción, solo no hace nada
-    assertDoesNotThrow(() -> {
-        agente.gestionarIncidente(incidente, null);
-    });
-}
+    @Test
+    void testGestionarIncidente_gestorNull() {
+        Email correo = new Email("agente5@mail.com");
+        Usuario usuario = new Usuario(1, "Juan", correo);
+
+        Incidente incidente = new Incidente(4, usuario, "Problema W");
+
+        AgenteDeSoporte agente = new AgenteDeSoporte(2, "Agente5", correo);
+        // No debería lanzar excepción, solo no hace nada
+        assertDoesNotThrow(() -> {
+            agente.gestionarIncidente(incidente, null);
+        });
+    }
 }

@@ -9,7 +9,6 @@ public class HabitacionSuite extends Habitacion {
 
     @Override
     public double calcularPrecio() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularPrecio'");
+        return 180.00;
     }
 }

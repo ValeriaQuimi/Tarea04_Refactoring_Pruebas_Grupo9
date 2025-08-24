@@ -14,7 +14,7 @@ public class AgenteDeSoporte extends Usuario{
     public void gestionarIncidente(Incidente incidente, GestorDeAccion gestorDeAccion) {
         if (incidente == null) {
             System.out.println("Error: incidente es null. No se puede gestionar.");
-            return; // o lanzar una excepción controlada si quieres
+            return;
         }
 
         if (gestorDeAccion == null) {

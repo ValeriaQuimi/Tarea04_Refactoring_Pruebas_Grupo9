@@ -20,7 +20,6 @@ import com.example.usuarios_y_roles.Usuario;
 
 public class ReservaTest {
 
-    
     private Usuario usuarioSamuel;
     private Hospedaje hospedaje;
     private HabitacionEstandar habitacion;
@@ -33,7 +32,7 @@ public class ReservaTest {
         hospedaje = new Hospedaje(habitacion);
     }
 
-    //R1
+    // R1
     @Test
     void testConstructor_valido() {
         Reserva reserva = new Reserva(usuarioSamuel, hospedaje);
@@ -42,7 +41,7 @@ public class ReservaTest {
         assertNotNull(reserva.getFecha());
     }
 
-    //R2
+    // R2
     @Test
     void testConstructor_itemNulo() {
         Exception ex = assertThrows(IllegalArgumentException.class, () -> {
@@ -51,7 +50,7 @@ public class ReservaTest {
         assertEquals("El ítem a reservar no puede ser nulo", ex.getMessage());
     }
 
-    //r3
+    // r3
     @Test
     void testConstructor_usuarioNulo() {
         Exception ex = assertThrows(IllegalArgumentException.class, () -> {
@@ -60,7 +59,7 @@ public class ReservaTest {
         assertEquals("El usuario no puede ser nulo", ex.getMessage());
     }
 
-    //R4
+    // R4
     @Test
     void testConfirmar() {
         Reserva reserva = new Reserva(usuarioSamuel, hospedaje);
@@ -68,7 +67,7 @@ public class ReservaTest {
         assertEquals("confirmada", reserva.getEstado());
     }
 
-    //R5
+    // R5
     @Test
     void testCancelar() {
         Reserva reserva = new Reserva(usuarioSamuel, hospedaje);
@@ -76,23 +75,23 @@ public class ReservaTest {
         assertEquals("cancelada", reserva.getEstado());
     }
 
-    //R6
+    // R6
     @Test
     void testGetUsuario() {
         Reserva reserva = new Reserva(usuarioSamuel, hospedaje);
         Usuario u = reserva.getUsuario();
         assertEquals("Samuel", u.getNombre());
-        assertEquals("samuel@gmail.com", u.getCorreo());
+        assertEquals("axel@example.com", u.getCorreo().getValor());
     }
 
-    //R7
+    // R7
     @Test
     void testGetItem() {
         Reserva reserva = new Reserva(usuarioSamuel, hospedaje);
         assertTrue(reserva.getItem() instanceof Hospedaje);
     }
 
-    //R8
+    // R8
     @Test
     void testGetFecha() {
         Reserva reserva = new Reserva(usuarioSamuel, hospedaje);
@@ -101,18 +100,19 @@ public class ReservaTest {
         assertTrue(reserva.getFecha().isAfter(ahora.minusSeconds(2)));
     }
 
-    //R9
+    // R9
     @Test
     void testGetEstado() {
         Reserva reserva = new Reserva(usuarioSamuel, hospedaje);
+        assertEquals("pendiente", reserva.getEstado()); // Estado inicial
         reserva.confirmar();
-        assertEquals("confirmada", reserva.getEstado());
+        assertEquals("confirmada", reserva.getEstado()); // Estado después de confirmar
     }
 
-    //R10
+    // R10
     @Test
     void tesGetId() {
         Reserva reserva = new Reserva(usuarioSamuel, hospedaje);
-        assertDoesNotThrow(() -> UUID.fromString(reserva.getId())); 
+        assertDoesNotThrow(() -> UUID.fromString(reserva.getId()));
     }
 }

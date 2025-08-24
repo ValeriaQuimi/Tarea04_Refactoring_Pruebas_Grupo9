@@ -4,7 +4,6 @@ import com.example.patrones.decorator.IHabitacion;
 import com.example.interfaces.Reservable;
 
 public class Hospedaje implements Reservable {
-    private Hotel hotel;
     private IHabitacion habitacion;
 
     public Hospedaje(IHabitacion habitacion) {
